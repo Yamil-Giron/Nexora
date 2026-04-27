@@ -1,0 +1,23 @@
+@model IEnumerable<Nexora.Models.Usuario>
+
+<h2>Lista de Usuarios</h2>
+<p><a asp-action="Create">Crear nuevo usuario</a></p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Rol</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <tr>
+            <td>@item.Nombre</td>
+            <td>@item.Correo</td>
+            <td>@item.Rol</td>
+        </tr>
+    }
+    </tbody>
+</table>

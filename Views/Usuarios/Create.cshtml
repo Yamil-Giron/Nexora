@@ -1,0 +1,23 @@
+@model Nexora.Models.Usuario
+
+<h2>Crear Usuario</h2>
+
+<form asp-action="Create">
+    <div>
+        <label asp-for="Nombre"></label>
+        <input asp-for="Nombre" />
+    </div>
+    <div>
+        <label asp-for="Correo"></label>
+        <input asp-for="Correo" />
+    </div>
+    <div>
+        <label asp-for="Contraseña"></label>
+        <input asp-for="Contraseña" type="password" />
+    </div>
+    <div>
+        <label asp-for="Rol"></label>
+        <input asp-for="Rol" />
+    </div>
+    <button type="submit">Guardar</button>
+</form>
