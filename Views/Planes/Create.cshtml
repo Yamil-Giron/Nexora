@@ -1,0 +1,8 @@
+@model Nexora.Models.Plan
+
+<h2>Crear Plan</h2>
+<form asp-action="Create">
+    <div><label asp-for="Nombre"></label><input asp-for="Nombre" /></div>
+    <div><label asp-for="Descripcion"></label><input asp-for="Descripcion" /></div>
+    <button type="submit">Guardar</button>
+</form>

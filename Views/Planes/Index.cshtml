@@ -1,0 +1,15 @@
+@model IEnumerable<Nexora.Models.Plan>
+
+<h2>Lista de Planes</h2>
+<p><a asp-action="Create">Crear nuevo plan</a></p>
+<table>
+    <thead><tr><th>Nombre</th><th>Descripción</th></tr></thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <tr>
+            <td>@item.Nombre</td>
+            <td>@item.Descripcion</td>
+        </tr>
+    }
+    </tbody>
+</table>
