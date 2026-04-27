@@ -1,0 +1,9 @@
+@model Nexora.Models.Empresa
+
+<h2>Crear Empresa</h2>
+<form asp-action="Create">
+    <div><label asp-for="Nombre"></label><input asp-for="Nombre" /></div>
+    <div><label asp-for="RUT"></label><input asp-for="RUT" /></div>
+    <div><label asp-for="Direccion"></label><input asp-for="Direccion" /></div>
+    <button type="submit">Guardar</button>
+</form>
