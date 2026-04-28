@@ -1,0 +1,27 @@
+@model IEnumerable<Nexora.Models.Factura>
+
+<h2>Lista de Facturas</h2>
+<p><a asp-action="Create">Crear nueva factura</a></p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Fecha Emisión</th>
+            <th>Monto</th>
+            <th>Estado</th>
+            <th>Contrato</th>
+            <th>Usuario</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <tr>
+            <td>@item.FechaEmision.ToShortDateString()</td>
+            <td>@item.Monto</td>
+            <td>@item.Estado</td>
+            <td>@item.IdContrato</td>
+            <td>@item.Contrato.Usuario.Nombre</td>
+        </tr>
+    }
+    </tbody>
+</table>
