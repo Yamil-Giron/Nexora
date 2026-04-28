@@ -3,20 +3,26 @@
 <h2>Lista de Usuarios</h2>
 <p><a asp-action="Create">Crear nuevo usuario</a></p>
 
-<table>
+<table class="table">
     <thead>
         <tr>
-            <th>Nombre</th>
-            <th>Correo</th>
-            <th>Rol</th>
+            <th>@Html.DisplayNameFor(model => model.Nombres)</th>
+            <th>@Html.DisplayNameFor(model => model.Apellidos)</th>
+            <th>@Html.DisplayNameFor(model => model.Rut)</th>
+            <th>@Html.DisplayNameFor(model => model.Correo)</th>
+            <th>@Html.DisplayNameFor(model => model.Telefono)</th>
+            <th>@Html.DisplayNameFor(model => model.Direccion)</th>
         </tr>
     </thead>
     <tbody>
     @foreach (var item in Model) {
         <tr>
-            <td>@item.Nombre</td>
+            <td>@item.Nombres</td>
+            <td>@item.Apellidos</td>
+            <td>@item.Rut</td>
             <td>@item.Correo</td>
-            <td>@item.Rol</td>
+            <td>@item.Telefono</td>
+            <td>@item.Direccion</td>
         </tr>
     }
     </tbody>

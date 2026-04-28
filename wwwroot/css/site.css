@@ -1,43 +1,27 @@
 .home-container {
-    text-align: center;
-    padding: 40px;
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
 }
 
-.dashboard {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 30px;
+.plans-section, .servers-section {
+    margin-bottom: 30px;
 }
 
 .card {
-    background-color: #fff;
     border: 1px solid #ddd;
-    width: 250px;
-    padding: 20px;
-    text-align: left;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    padding: 15px;
+    margin: 10px 0;
+    background: #f9f9f9;
 }
 
-.card h2 {
-    margin-top: 0;
-    color: #333;
+.login-link {
+    margin-top: 40px;
+    text-align: right;
 }
-
-.card p {
-    font-size: 14px;
-    color: #555;
-}
-
-.card a {
-    display: inline-block;
-    margin-top: 10px;
+.login-link a {
+    background: #333;
+    color: #fff;
+    padding: 10px 15px;
     text-decoration: none;
-    color: #0066cc;
-    font-weight: bold;
-}
-
-.card a:hover {
-    text-decoration: underline;
 }

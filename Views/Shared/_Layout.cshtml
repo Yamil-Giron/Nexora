@@ -2,37 +2,35 @@
 <html lang="es">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Nexora</title>
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
     <header>
-        <nav class="navbar">
-            <div class="container">
-                <a class="brand" asp-controller="Home" asp-action="Index">Nexora</a>
-                <ul class="nav-links">
-                    <li><a asp-controller="Usuarios" asp-action="Index">Usuarios</a></li>
-                    <li><a asp-controller="Empresas" asp-action="Index">Empresas</a></li>
-                    <li><a asp-controller="Planes" asp-action="Index">Planes</a></li>
-                    <li><a asp-controller="Servidores" asp-action="Index">Servidores</a></li>
-                    <li><a asp-controller="Contratos" asp-action="Index">Contratos</a></li>
-                    <li><a asp-controller="Facturas" asp-action="Index">Facturas</a></li>
-                </ul>
-            </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a asp-controller="Home" asp-action="Index">Inicio</a></li>
+                @if (Context.Session.GetString("UsuarioNombre") != null)
+                {
+                    <li>Hola @Context.Session.GetString("UsuarioNombre")!</li>
+                    <li><a asp-controller="Auth" asp-action="Logout">Cerrar sesión</a></li>
+                }
+                else
+                {
+                    <li><a asp-controller="Auth" asp-action="Index">Ingreso / Registro</a></li>
+                }
+            </ul>
         </nav>
     </header>
 
-    <main class="container">
+    <main role="main" class="container">
         @RenderBody()
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            &copy; 2026 - Nexora
-        </div>
+    <footer>
+        <p>&copy; 2026 - Nexora</p>
     </footer>
 
-    @await RenderSectionAsync("Scripts", required: false)
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

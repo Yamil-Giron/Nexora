@@ -1,0 +1,107 @@
+@{
+    ViewData["Title"] = "Ingreso / Registro";
+}
+
+<h2>Ingreso / Registro</h2>
+<p><a asp-controller="Home" asp-action="Index">Volver al inicio</a></p>
+
+<ul class="tabs">
+    <li><a href="#login" class="active">Ingresar</a></li>
+    <li><a href="#register">Registrar</a></li>
+</ul>
+
+<!-- LOGIN -->
+<div id="login" class="tab-content active">
+    <h3>Ingresar</h3>
+    <form asp-action="Login" method="post">
+        <div>
+            <label for="Correo">Correo</label>
+            <input type="email" name="Correo" required />
+        </div>
+        <div>
+            <label for="Contraseña">Contraseña</label>
+            <input type="password" name="Contraseña" required />
+        </div>
+        <button type="submit">Ingresar</button>
+    </form>
+
+    @if (ViewBag.Error != null)
+    {
+        <p class="text-danger">@ViewBag.Error</p>
+    }
+</div>
+
+<!-- REGISTRO -->
+<div id="register" class="tab-content">
+    <h3>Registro</h3>
+
+    <label>
+        <input type="checkbox" id="chkEmpresa" />
+        Soy una empresa
+    </label>
+
+    <!-- FORMULARIO USUARIO -->
+    <div id="formUsuario">
+        <form asp-action="Register" method="post">
+            <input type="hidden" name="EsEmpresa" value="false" />
+            <div><label>Nombres</label><input type="text" name="Nombres" required /></div>
+            <div><label>Apellidos</label><input type="text" name="Apellidos" required /></div>
+            <div><label>RUT</label><input type="text" name="Rut" required /></div>
+            <div><label>Correo</label><input type="email" name="Correo" required /></div>
+            <div><label>Teléfono</label><input type="tel" name="Telefono" required /></div>
+            <div><label>Contraseña</label><input type="password" name="Contraseña" required /></div>
+            <div><label>Dirección</label><input type="text" name="Direccion" required /></div>
+            <button type="submit">Registrar Usuario</button>
+        </form>
+    </div>
+
+    <!-- FORMULARIO EMPRESA -->
+    <div id="formEmpresa" style="display:none;">
+        <form asp-action="Register" method="post">
+            <input type="hidden" name="EsEmpresa" value="true" />
+            <div><label>Razón Social</label><input type="text" name="RazonSocial" required /></div>
+            <div><label>RUT</label><input type="text" name="Rut" required /></div>
+            <div><label>Nombre de Usuario</label><input type="text" name="NombreUsuario" required /></div>
+            <div><label>Correo</label><input type="email" name="Correo" required /></div>
+            <div><label>Teléfono</label><input type="tel" name="Telefono" required /></div>
+            <div><label>Contraseña</label><input type="password" name="Contraseña" required /></div>
+            <div><label>Dirección</label><input type="text" name="Direccion" required /></div>
+            <button type="submit">Registrar Empresa</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        // Tabs simples
+        const tabs = document.querySelectorAll(".tabs a");
+        const contents = document.querySelectorAll(".tab-content");
+
+        tabs.forEach(tab => {
+            tab.addEventListener("click", e => {
+                e.preventDefault();
+                tabs.forEach(t => t.classList.remove("active"));
+                tab.classList.add("active");
+
+                contents.forEach(c => c.classList.remove("active"));
+                document.querySelector(tab.getAttribute("href")).classList.add("active");
+            });
+        });
+
+        // Checkbox para alternar entre Usuario y Empresa en Registro
+        const chk = document.getElementById("chkEmpresa");
+        const formUsuario = document.getElementById("formUsuario");
+        const formEmpresa = document.getElementById("formEmpresa");
+
+        chk.addEventListener("change", function () {
+            if (chk.checked) {
+                formUsuario.style.display = "none";
+                formEmpresa.style.display = "block";
+            } else {
+                formUsuario.style.display = "block";
+                formEmpresa.style.display = "none";
+            }
+        });
+    </script>
+}

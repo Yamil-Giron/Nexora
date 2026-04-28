@@ -1,14 +1,27 @@
 @model IEnumerable<Nexora.Models.Empresa>
 
 <h2>Lista de Empresas</h2>
-<p><a asp-action="Create">Crear nueva empresa</a></p>
-<table>
-    <thead><tr><th>Nombre</th><th>RUT</th><th>Dirección</th></tr></thead>
+<p><a asp-action="Create">Registrar nueva empresa</a></p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.RazonSocial)</th>
+            <th>@Html.DisplayNameFor(model => model.Rut)</th>
+            <th>@Html.DisplayNameFor(model => model.NombreUsuario)</th>
+            <th>@Html.DisplayNameFor(model => model.Correo)</th>
+            <th>@Html.DisplayNameFor(model => model.Telefono)</th>
+            <th>@Html.DisplayNameFor(model => model.Direccion)</th>
+        </tr>
+    </thead>
     <tbody>
     @foreach (var item in Model) {
         <tr>
-            <td>@item.Nombre</td>
-            <td>@item.RUT</td>
+            <td>@item.RazonSocial</td>
+            <td>@item.Rut</td>
+            <td>@item.NombreUsuario</td>
+            <td>@item.Correo</td>
+            <td>@item.Telefono</td>
             <td>@item.Direccion</td>
         </tr>
     }

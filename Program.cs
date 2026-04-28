@@ -6,9 +6,16 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-// Configurar DbContext con PostgreSQL (antes de builder.Build)
+// Configurar DbContext con PostgreSQL
 builder.Services.AddDbContext<NexoraContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("NexoraDb")));
+
+// 🔑 Agregar soporte para sesiones
+builder.Services.AddSession(options =>
+{
+    options.Cookie.HttpOnly = true;                 // más seguro
+    options.Cookie.IsEssential = true;              // requerido para GDPR
+});
 
 var app = builder.Build();
 
@@ -20,14 +27,16 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseStaticFiles(); // importante para CSS/JS
+
 app.UseRouting();
 app.UseAuthorization();
 
-app.MapStaticAssets();
+// 🔑 Activar sesiones
+app.UseSession();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}")
-    .WithStaticAssets();
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();

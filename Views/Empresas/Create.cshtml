@@ -1,9 +1,46 @@
 @model Nexora.Models.Empresa
 
 <h2>Crear Empresa</h2>
-<form asp-action="Create">
-    <div><label asp-for="Nombre"></label><input asp-for="Nombre" /></div>
-    <div><label asp-for="RUT"></label><input asp-for="RUT" /></div>
-    <div><label asp-for="Direccion"></label><input asp-for="Direccion" /></div>
+
+<form asp-action="Create" method="post">
+    <div>
+        <label asp-for="RazonSocial"></label>
+        <input asp-for="RazonSocial" />
+        <span asp-validation-for="RazonSocial" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Rut"></label>
+        <input asp-for="Rut" />
+        <span asp-validation-for="Rut" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="NombreUsuario"></label>
+        <input asp-for="NombreUsuario" />
+        <span asp-validation-for="NombreUsuario" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Correo"></label>
+        <input asp-for="Correo" type="email" />
+        <span asp-validation-for="Correo" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Direccion"></label>
+        <input asp-for="Direccion" />
+        <span asp-validation-for="Direccion" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Contraseña"></label>
+        <input asp-for="Contraseña" type="password" />
+        <span asp-validation-for="Contraseña" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Telefono"></label>
+        <input asp-for="Telefono" type="tel" />
+        <span asp-validation-for="Telefono" class="text-danger"></span>
+    </div>
     <button type="submit">Guardar</button>
 </form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

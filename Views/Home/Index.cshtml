@@ -1,41 +1,13 @@
-﻿@{
-    ViewData["Title"] = "Inicio";
-}
-
-<div class="home-container">
-    <h1>Bienvenido a Nexora</h1>
-    <p>Sistema modular de gestión de usuarios, empresas, planes, servidores, contratos y facturas.</p>
-
-    <div class="dashboard">
-        <div class="card">
-            <h2>Usuarios</h2>
-            <p>Gestión de cuentas y roles.</p>
-            <a asp-controller="Usuarios" asp-action="Index">Ir a Usuarios</a>
-        </div>
-        <div class="card">
-            <h2>Empresas</h2>
-            <p>Administración de datos de empresas.</p>
-            <a asp-controller="Empresas" asp-action="Index">Ir a Empresas</a>
-        </div>
-        <div class="card">
-            <h2>Planes</h2>
-            <p>Configuración de planes de servicio.</p>
-            <a asp-controller="Planes" asp-action="Index">Ir a Planes</a>
-        </div>
-        <div class="card">
-            <h2>Servidores</h2>
-            <p>Gestión de servidores disponibles.</p>
-            <a asp-controller="Servidores" asp-action="Index">Ir a Servidores</a>
-        </div>
-        <div class="card">
-            <h2>Contratos</h2>
-            <p>Creación y administración de contratos.</p>
-            <a asp-controller="Contratos" asp-action="Index">Ir a Contratos</a>
-        </div>
-        <div class="card">
-            <h2>Facturas</h2>
-            <p>Registro y control de facturas.</p>
-            <a asp-controller="Facturas" asp-action="Index">Ir a Facturas</a>
-        </div>
+﻿<div class="plans-section">
+    <h2>Planes</h2>
+    <div class="card">
+        <h3>Plan Básico</h3>
+        <p>$10.000 / mes</p>
+        <a asp-controller="Auth" asp-action="Index">Seleccionar</a>
+    </div>
+    <div class="card">
+        <h3>Plan Avanzado</h3>
+        <p>$20.000 / mes</p>
+        <a asp-controller="Auth" asp-action="Index">Seleccionar</a>
     </div>
 </div>
