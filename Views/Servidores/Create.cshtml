@@ -1,0 +1,9 @@
+@model Nexora.Models.Servidor
+
+<h2>Crear Servidor</h2>
+<form asp-action="Create">
+    <div><label asp-for="Nombre"></label><input asp-for="Nombre" /></div>
+    <div><label asp-for="IP"></label><input asp-for="IP" /></div>
+    <div><label asp-for="Estado"></label><input asp-for="Estado" /></div>
+    <button type="submit">Guardar</button>
+</form>

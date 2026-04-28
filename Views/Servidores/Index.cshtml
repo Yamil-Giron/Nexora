@@ -1,0 +1,16 @@
+@model IEnumerable<Nexora.Models.Servidor>
+
+<h2>Lista de Servidores</h2>
+<p><a asp-action="Create">Crear nuevo servidor</a></p>
+<table>
+    <thead><tr><th>Nombre</th><th>IP</th><th>Estado</th></tr></thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <tr>
+            <td>@item.Nombre</td>
+            <td>@item.IP</td>
+            <td>@item.Estado</td>
+        </tr>
+    }
+    </tbody>
+</table>
