@@ -3,27 +3,28 @@
 <head>
     <meta charset="utf-8" />
     <title>@ViewData["Title"] - Nexora</title>
-    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
-        <nav>
-            <ul class="nav-links">
-                <li><a asp-controller="Home" asp-action="Index">Inicio</a></li>
-                @if (Context.Session.GetString("UsuarioNombre") != null)
-                {
-                    <li>Hola @Context.Session.GetString("UsuarioNombre")!</li>
-                    <li><a asp-controller="Auth" asp-action="Logout">Cerrar sesión</a></li>
-                }
-                else
-                {
-                    <li><a asp-controller="Auth" asp-action="Index">Ingreso / Registro</a></li>
-                }
-            </ul>
-        </nav>
-    </header>
+    <header class="header-lineal">
+    <div class="left">
+        <a asp-controller="Home" asp-action="Index" class="btn-home">🏠</a>
+    </div>
+    <div class="right">
+        @if (Context.Session.GetString("UsuarioNombre") != null)
+        {
+            <span>Hola @Context.Session.GetString("UsuarioNombre")</span>
+            <a asp-controller="Auth" asp-action="Logout" class="btn btn-warning">Cerrar sesión</a>
+        }
+        else
+        {
+            <a asp-controller="Auth" asp-action="Index" class="btn btn-success">Login</a>
+        }
+    </div>
+</header>
 
-    <main role="main" class="container">
+
+    <main class="container">
         @RenderBody()
     </main>
 

@@ -1,13 +1,33 @@
 ﻿<div class="plans-section">
     <h2>Planes</h2>
+
     <div class="card">
         <h3>Plan Básico</h3>
         <p>$10.000 / mes</p>
-        <a asp-controller="Auth" asp-action="Index">Seleccionar</a>
+        @if (Context.Session.GetString("UsuarioId") != null || Context.Session.GetString("EmpresaId") != null)
+        {
+            <!-- Usuario logueado -->
+            <a asp-controller="Contratos" asp-action="Create" asp-route-planId="1" class="btn btn-success">Contratar</a>
+        }
+        else
+        {
+            <!-- Usuario no logueado -->
+            <a asp-controller="Auth" asp-action="Register" class="btn btn-primary">Registrarse</a>
+        }
     </div>
+
     <div class="card">
         <h3>Plan Avanzado</h3>
         <p>$20.000 / mes</p>
-        <a asp-controller="Auth" asp-action="Index">Seleccionar</a>
+        @if (Context.Session.GetString("UsuarioId") != null || Context.Session.GetString("EmpresaId") != null)
+        {
+            <!-- Usuario logueado -->
+            <a asp-controller="Contratos" asp-action="Create" asp-route-planId="2" class="btn btn-success">Contratar</a>
+        }
+        else
+        {
+            <!-- Usuario no logueado -->
+            <a asp-controller="Auth" asp-action="Register" class="btn btn-primary">Registrarse</a>
+        }
     </div>
 </div>

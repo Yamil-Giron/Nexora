@@ -228,7 +228,6 @@
 /home/yamil/Documentos/Nexora/obj/Debug/net10.0/scopedcss/Views/Shared/_Layout.cshtml.rz.scp.css
 /home/yamil/Documentos/Nexora/obj/Debug/net10.0/scopedcss/bundle/Nexora.styles.css
 /home/yamil/Documentos/Nexora/obj/Debug/net10.0/scopedcss/projectbundle/Nexora.bundle.scp.css
-/home/yamil/Documentos/Nexora/obj/Debug/net10.0/compressed/7fpw4ic6tk-{0}-3xhm5o47au-3xhm5o47au.gz
 /home/yamil/Documentos/Nexora/obj/Debug/net10.0/compressed/cs0o7yjbf2-{0}-61n19gt1b8-61n19gt1b8.gz
 /home/yamil/Documentos/Nexora/obj/Debug/net10.0/compressed/t51u2vkpkl-{0}-fr7q2aak1r-fr7q2aak1r.gz
 /home/yamil/Documentos/Nexora/obj/Debug/net10.0/compressed/5fgqruew4e-{0}-bqjiyaj88i-bqjiyaj88i.gz
@@ -303,3 +302,4 @@
 /home/yamil/Documentos/Nexora/obj/Debug/net10.0/Nexora.pdb
 /home/yamil/Documentos/Nexora/obj/Debug/net10.0/Nexora.genruntimeconfig.cache
 /home/yamil/Documentos/Nexora/obj/Debug/net10.0/ref/Nexora.dll
+/home/yamil/Documentos/Nexora/obj/Debug/net10.0/compressed/7fpw4ic6tk-{0}-glb6o64tvp-glb6o64tvp.gz

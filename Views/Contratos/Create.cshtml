@@ -1,31 +1,19 @@
 @model Nexora.Models.Contrato
 
-<h2>Crear Contrato</h2>
+<h2>Solicitud de contratación</h2>
 
-<form asp-action="Create">
-    <div>
-        <label asp-for="FechaInicio"></label>
-        <input asp-for="FechaInicio" type="date" />
-    </div>
-    <div>
-        <label asp-for="FechaFin"></label>
-        <input asp-for="FechaFin" type="date" />
-    </div>
-    <div>
-        <label>Usuario</label>
-        <select asp-for="IdUsuario" asp-items="ViewBag.Usuarios"></select>
-    </div>
-    <div>
-        <label>Empresa</label>
-        <select asp-for="IdEmpresa" asp-items="ViewBag.Empresas"></select>
-    </div>
-    <div>
-        <label>Plan</label>
-        <select asp-for="IdPlan" asp-items="ViewBag.Planes"></select>
-    </div>
-    <div>
-        <label>Servidor</label>
-        <select asp-for="IdServidor" asp-items="ViewBag.Servidores"></select>
-    </div>
-    <button type="submit">Guardar</button>
+<p>
+En el día de la fecha <b>@ViewBag.Fecha</b> se solicitó la aprobación del servicio 
+<b>@ViewBag.Plan?.Nombre</b>, siendo solicitante <b>@ViewBag.Nombre</b> (@ViewBag.Tipo) 
+cuyo RUT se encuentra registrado en la base de datos, a través de la página web.
+</p>
+
+<div class="mb-3">
+    <a asp-controller="Home" asp-action="Contacto" class="btn btn-info">¿Tienes dudas?</a>
+    <a asp-controller="Home" asp-action="ContactoRapido" class="btn btn-warning">¿Te contactamos?</a>
+</div>
+
+<form asp-action="Create" method="post">
+    <input type="hidden" asp-for="IdPlan" value="@ViewBag.Plan?.IdPlan" />
+    <button type="submit" class="btn btn-success">Enviar</button>
 </form>

@@ -19,6 +19,7 @@ namespace Nexora.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Login(string Correo, string Contraseña)
         {
             // Buscar en Usuarios
@@ -27,8 +28,11 @@ namespace Nexora.Controllers
 
             if (usuario != null)
             {
+                HttpContext.Session.SetString("UsuarioId", usuario.IdUsuario.ToString());
                 HttpContext.Session.SetString("UsuarioNombre", usuario.Nombres);
                 HttpContext.Session.SetString("Tipo", "Usuario");
+                HttpContext.Session.SetString("Correo", usuario.Correo);
+
                 return RedirectToAction("Index", "Home");
             }
 
@@ -38,8 +42,11 @@ namespace Nexora.Controllers
 
             if (empresa != null)
             {
+                HttpContext.Session.SetString("EmpresaId", empresa.IdEmpresa.ToString());
                 HttpContext.Session.SetString("UsuarioNombre", empresa.NombreUsuario);
                 HttpContext.Session.SetString("Tipo", "Empresa");
+                HttpContext.Session.SetString("Correo", empresa.Correo);
+
                 return RedirectToAction("Index", "Home");
             }
 
@@ -49,6 +56,7 @@ namespace Nexora.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Register(Usuario usuario, bool EsEmpresa)
         {
             if (EsEmpresa)
@@ -64,19 +72,24 @@ namespace Nexora.Controllers
                     Telefono = usuario.Telefono
                 };
                 _context.Empresas.Add(empresa);
+                _context.SaveChanges();
 
+                HttpContext.Session.SetString("EmpresaId", empresa.IdEmpresa.ToString());
                 HttpContext.Session.SetString("UsuarioNombre", empresa.NombreUsuario);
                 HttpContext.Session.SetString("Tipo", "Empresa");
+                HttpContext.Session.SetString("Correo", empresa.Correo);
             }
             else
             {
                 _context.Usuarios.Add(usuario);
+                _context.SaveChanges();
 
+                HttpContext.Session.SetString("UsuarioId", usuario.IdUsuario.ToString());
                 HttpContext.Session.SetString("UsuarioNombre", usuario.Nombres);
                 HttpContext.Session.SetString("Tipo", "Usuario");
+                HttpContext.Session.SetString("Correo", usuario.Correo);
             }
 
-            _context.SaveChanges();
             return RedirectToAction("Index", "Home");
         }
 

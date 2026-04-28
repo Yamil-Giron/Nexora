@@ -17,12 +17,12 @@
     <tbody>
     @foreach (var item in Model) {
         <tr>
-            <td>@item.Usuario.Nombres</td>
-            <td>@item.Empresa.NombreUsuario</td>
-            <td>@item.Plan.Nombre</td>
-            <td>@item.Servidor.Nombre</td>
+            <td>@item.Usuario?.Nombres</td>
+            <td>@item.Empresa?.NombreUsuario</td>
+            <td>@item.Plan?.Nombre</td>
+            <td>@item.Servidor?.Nombre</td>
             <td>@item.FechaInicio.ToShortDateString()</td>
-            <td>@item.FechaFin.ToShortDateString()</td>
+            <td>@(item.FechaFin.HasValue ? item.FechaFin.Value.ToShortDateString() : "-")</td>
         </tr>
     }
     </tbody>
