@@ -1,0 +1,29 @@
+@model IEnumerable<Nexora.Models.Contrato>
+
+<h2>Lista de Contratos</h2>
+<p><a asp-action="Create">Crear nuevo contrato</a></p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Usuario</th>
+            <th>Empresa</th>
+            <th>Plan</th>
+            <th>Servidor</th>
+            <th>Fecha Inicio</th>
+            <th>Fecha Fin</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <tr>
+            <td>@item.Usuario.Nombre</td>
+            <td>@item.Empresa.Nombre</td>
+            <td>@item.Plan.Nombre</td>
+            <td>@item.Servidor.Nombre</td>
+            <td>@item.FechaInicio.ToShortDateString()</td>
+            <td>@item.FechaFin.ToShortDateString()</td>
+        </tr>
+    }
+    </tbody>
+</table>

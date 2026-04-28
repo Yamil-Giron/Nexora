@@ -30,6 +30,14 @@ build_property._RazorSourceGeneratorDebug =
 build_property.EffectiveAnalysisLevelStyle = 10.0
 build_property.EnableCodeStyleSeverity = 
 
+[/home/yamil/Documentos/Nexora/Views/Contratos/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ29udHJhdG9zL0NyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/yamil/Documentos/Nexora/Views/Contratos/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ29udHJhdG9zL0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [/home/yamil/Documentos/Nexora/Views/Empresas/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRW1wcmVzYXMvQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

@@ -1,0 +1,31 @@
+@model Nexora.Models.Contrato
+
+<h2>Crear Contrato</h2>
+
+<form asp-action="Create">
+    <div>
+        <label asp-for="FechaInicio"></label>
+        <input asp-for="FechaInicio" type="date" />
+    </div>
+    <div>
+        <label asp-for="FechaFin"></label>
+        <input asp-for="FechaFin" type="date" />
+    </div>
+    <div>
+        <label>Usuario</label>
+        <select asp-for="IdUsuario" asp-items="ViewBag.Usuarios"></select>
+    </div>
+    <div>
+        <label>Empresa</label>
+        <select asp-for="IdEmpresa" asp-items="ViewBag.Empresas"></select>
+    </div>
+    <div>
+        <label>Plan</label>
+        <select asp-for="IdPlan" asp-items="ViewBag.Planes"></select>
+    </div>
+    <div>
+        <label>Servidor</label>
+        <select asp-for="IdServidor" asp-items="ViewBag.Servidores"></select>
+    </div>
+    <button type="submit">Guardar</button>
+</form>
